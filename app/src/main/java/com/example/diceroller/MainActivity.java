@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     public void on_button_click(View view) {
         TextView TV = this.findViewById(R.id.NumberGenerated);
         TextView EG = (TextView) this.findViewById(R.id.Guess);
+        TextView GG = (TextView) this.findViewById(R.id.Score);
 
         Random r = new Random();
         int num = r.nextInt(6);
@@ -72,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (UserInput == GenNum) {
 
+            int Score1 = Integer.valueOf(GG.getText().toString());
+            int Scoring = Score1 +1;
+
+            GG.setText(Integer.toString(Scoring));
 
             Toast.makeText(getApplicationContext(), "Congratulations", Toast.LENGTH_SHORT).show();
         }
