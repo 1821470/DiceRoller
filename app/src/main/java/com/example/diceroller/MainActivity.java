@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -58,12 +59,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void on_button_click(View view) {
         TextView TV = this.findViewById(R.id.NumberGenerated);
-
+        TextView EG = (TextView) this.findViewById(R.id.Guess);
 
         Random r = new Random();
         int num = r.nextInt(6);
 
         TV.setText(Integer.toString(num));
+
+
+        int GenNum = Integer.valueOf(TV.getText().toString());
+        int UserInput = Integer.valueOf(EG.getText().toString());
+
+        if (UserInput == GenNum) {
+
+
+            Toast.makeText(getApplicationContext(), "Congratulations", Toast.LENGTH_SHORT).show();
+        }
     }
 }
-
